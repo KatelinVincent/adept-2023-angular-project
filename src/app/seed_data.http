@@ -1,0 +1,52 @@
+### Reset the data directory and add default seed data
+
+POST http://localhost:3040/reset
+
+### login with valid email
+POST http://localhost:3040/api/emails/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com"
+}
+
+### logout
+POST http://localhost:3040/api/emails/logout
+
+### inbox
+GET http://localhost:3040/api/emails/inbox
+Accept: application/json
+
+### send an email
+POST http://localhost:3040/api/emails
+Content-Type: application/json
+
+{
+    "to": ["blah@example.com", "bliz@example.com"],
+    "subject": "Hello",
+    "body": "World"
+}
+
+### get an email
+GET http://localhost:3040/api/emails/1
+Accept: application/json
+
+### star an email
+PATCH http://localhost:3040/api/emails/1
+Content-Type: application/json
+
+{
+    "starred": false
+}
+
+### mark as read
+PATCH http://localhost:3040/api/emails/1
+Content-Type: application/json
+
+{
+    "read": true
+}
+
+### delete an email
+DELETE http://localhost:3040/api/emails/1
+

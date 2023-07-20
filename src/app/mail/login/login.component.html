@@ -1,0 +1,17 @@
+
+<div class="block flex justify-center my-20">
+   <mat-card class="p-5">
+    <mat-card-header >Login</mat-card-header>
+    <form [formGroup]="loginCredentials" (ngSubmit)="onSubmit()">
+        <mat-form-field class="w-80">
+            <mat-label>Email</mat-label>
+            <input matInput  required type="email" formControlName="email">
+            <mat-error *ngIf="loginCredentials.controls.email.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="loginCredentials.controls.email.hasError('email')">Valid Email is required</mat-error>
+        </mat-form-field>
+        <mat-card-actions>
+            <button mat-flat-button [disabled]="loginCredentials.invalid" color="primary" type="submit">Login</button>
+        </mat-card-actions>
+    </form>
+   </mat-card>
+</div>
