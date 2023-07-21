@@ -1,1 +1,13 @@
-<p>menu works!</p>
+<div class="flex my-5 mx-20 gap-5">
+    <div class="w-60">
+        <ul>
+            <li class="pb-3">
+                <a routerLink="inbox" class="text-white bg-slate-600 border primary rounded p-3">Inbox</a>
+            </li>
+            <li class="bg-slate-300 border primary rounded p-3"><button (click)="logout()">Logout</button></li>
+        </ul>
+    </div>
+    <div class="grow">
+        <router-outlet></router-outlet>
+    </div>
+</div>

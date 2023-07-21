@@ -1,24 +1,14 @@
-<div class="flex my-5 mx-20 gap-5">
-    <div class="w-60">
-        <ul>
-            <li class="pb-3">
-                <p class="text-white bg-slate-600 border primary rounded p-3">Inbox</p>
-            </li>
-            <li class="bg-slate-300 border primary rounded p-3"><button (click)="logout()">Logout</button></li>
-        </ul>
-    </div>
-    <div class="grow">
-        <h1 class="my-2">Inbox</h1>
-        <ul class="border rounded" *ngFor="let email of emails$ | async">
-            <li routerLinkActive="active" ><a class="border p-4 grid grid-cols-3" [routerLink]="['/mail/inbox', email.id]">
-                    <p>{{email.from}}</p>
-                    <p>{{email.subject}}</p>
-                    <p>{{email.sentAt}}</p>
-                </a>
-            </li>
-        </ul>
-        <div class=" my-5 border rounded">
-            <router-outlet></router-outlet>
-        </div>
+<div>
+    <h1 class="my-2">Inbox</h1>
+    <ul class="border rounded" *ngFor="let email of emails$ | async">
+        <li routerLinkActive="active"><a class="border p-4 grid grid-cols-3" [routerLink]="['/mail/inbox', email.id]">
+                <p>{{email.from}}</p>
+                <p>{{email.subject}}</p>
+                <p>{{email.sentAt}}</p>
+            </a>
+        </li>
+    </ul>
+    <div class=" my-5 border rounded">
+        <router-outlet></router-outlet>
     </div>
 </div>
