@@ -1,0 +1,31 @@
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+type EmailContent = {
+  from : string, 
+  to : Array<string>, 
+  subject : string, 
+  body : string
+}
+
+@Component({
+  selector: 'app-details',
+  templateUrl: './details.component.html',
+  styleUrls: ['./details.component.css']
+})
+export class DetailsComponent implements OnInit{
+  requestBody$ : Observable<EmailContent> | null = null
+  emailId : string = ''
+
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+
+  ngOnInit() : void {
+    this.route.paramMap.subscribe(params => {
+      this.emailId = params.get('id')!
+      this.requestBody$ = this.http.get<EmailContent>(`http://localhost:3040/api/emails/${this.emailId}`, {withCredentials: true})
+    })
+  }
+}
+

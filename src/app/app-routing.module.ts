@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './mail/login/login.component';
 import { InboxComponent } from './mail/inbox/inbox.component';
 import { HomeComponent } from './home/home.component';
+import { DetailsComponent } from './mail/details/details.component';
+import { MenuComponent } from './mail/menu/menu.component';
+import { ComposeComponent } from './mail/compose/compose.component';
 
 
 const routes: Routes = [
@@ -11,13 +14,29 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'mail/login',
+    path: "mail/login",
     component: LoginComponent
   },
   {
-    path: 'mail/inbox',
-    component: InboxComponent
+    path: "mail",
+    children: [
+      {
+        path: 'compose',
+        component: ComposeComponent
+      },
+      {
+        path: 'inbox',
+        component: InboxComponent,
+        children: [
+          {
+            path: ":id",
+            component: DetailsComponent,
+          }
+        ]
+      },
+    ]
   },
+
 
 
 ];

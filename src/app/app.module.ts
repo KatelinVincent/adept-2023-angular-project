@@ -15,6 +15,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailsComponent } from './mail/details/details.component';
+import { ComposeComponent } from './mail/compose/compose.component';
+import { MenuComponent } from './mail/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     SiteHeaderComponent,
     LoginComponent,
     InboxComponent,
-    HomeComponent
+    HomeComponent,
+    DetailsComponent,
+    ComposeComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
