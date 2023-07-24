@@ -19,11 +19,8 @@ const routes: Routes = [
   },
   {
     path: "mail",
+    component: MenuComponent,
     children: [
-      {
-        path: 'menu',
-        component: MenuComponent
-      },
       {
         path: 'compose',
         component: ComposeComponent

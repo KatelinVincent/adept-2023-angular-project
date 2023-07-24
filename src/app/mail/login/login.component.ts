@@ -17,7 +17,7 @@ export class LoginComponent {
 
   onSubmit() {
     this.http.post('http://localhost:3040/api/emails/login', this.loginCredentials.value, {withCredentials: true}).subscribe((response) => {
-        this.router.navigate(['mail/menu'])
+        this.router.navigate(['mail/inbox'])
     })
   }
 }

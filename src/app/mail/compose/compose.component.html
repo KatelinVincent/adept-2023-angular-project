@@ -1,1 +1,30 @@
-<p>compose works!</p>
+<div>
+    <h1 class="my-2">Compose</h1>
+    <form [formGroup]="composedEmail" (ngSubmit)="onSend()">
+        <mat-form-field class="w-full">
+            <mat-label>Recipients</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Enter Recipients">
+                <mat-chip-row class="border" *ngFor="let person of to" (removed)="remove(person)"
+                    [aria-description]="'press enter to edit ' + person">
+                    {{person}}
+                    <button matChipRemove [attr.aria-label]="'remove ' + person">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip-row>
+            </mat-chip-grid>
+            <input placeholder="New Recipient..." [matChipInputFor]="chipGrid" type="email" formControlName="recipient"
+                (matChipInputTokenEnd)="add()" />
+
+        </mat-form-field>
+        <mat-form-field class="w-full">
+            <mat-label>Subject</mat-label>
+            <input matInput type="email" required formControlName="subject">
+        </mat-form-field>
+        <mat-form-field class="w-full">
+            <mat-label>Body</mat-label>
+            <textarea matInput type="email" formControlName="body"></textarea>
+        </mat-form-field>
+        
+        <button mat-flat-button color="primary" [disabled]="validEmail()">Send</button>
+    </form>
+</div>

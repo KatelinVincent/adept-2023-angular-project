@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './mail/details/details.component';
 import { ComposeComponent } from './mail/compose/compose.component';
 import { MenuComponent } from './mail/menu/menu.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MenuComponent } from './mail/menu/menu.component';
     ReactiveFormsModule, 
     MatInputModule, 
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule, 
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
