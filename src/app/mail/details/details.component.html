@@ -1,7 +1,7 @@
 <div class="border rounded my-5">
     <ul class ="p-2" *ngIf="requestBody$ | async as request">
        <li class="p-2"><strong>From: </strong>{{request.from}}</li>
-       <mat-icon class="float-right mx-6" (click)="delete(request)" routerLink="/mail/inbox" >delete</mat-icon>
+       <mat-icon class="float-right mx-6" (click)="delete(request)">delete</mat-icon>
        <li class="p-2"><strong>To: </strong>{{request.to.join(', ')}}</li>
        <li class="p-2"><strong>Subject: </strong>{{request.subject}}</li>
         <li *ngIf="request.body !== ''" class="p-6 rounded bg-slate-100">{{request.body}}</li>
