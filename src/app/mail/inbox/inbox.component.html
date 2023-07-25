@@ -3,13 +3,11 @@
     <ul class="border rounded">
         
         <li *ngFor="let email of emails$ | async" (click)="readEmail(email)" routerLinkActive="active"
-            [ngClass]="{'bg-slate-100': email.read, 'font-normal': email.read, 'font-semibold': !email.read}" >
-            <a class="p-4 grid grid-cols-3 border-b"
+            [ngClass]="{'bg-slate-100': email.read, 'font-normal': email.read, 'font-semibold': !email.read}" class="p-4 grid grid-cols-3 border-b"
                 [routerLink]="['/mail/inbox', email.id]">
                 <p>{{email.from}}</p>
                 <p>{{email.subject}}</p>
                 <p>{{email.sentAt | date}}</p>
-            </a>
 
         </li>
     </ul>

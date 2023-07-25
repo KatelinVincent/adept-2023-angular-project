@@ -40,7 +40,7 @@ export class InboxComponent implements OnInit {
   // ToDo: FIx leaky su
 
 
-  readEmail (email : any) {
+  readEmail(email : any) {
     console.log('read email')
     this.http.patch(`http://localhost:3040/api/emails/${email.id}`, {
       "read": true
