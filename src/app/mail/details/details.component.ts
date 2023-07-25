@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 type EmailContent = {
+  id : number,
   from : string, 
   to : Array<string>, 
   subject : string, 
@@ -25,6 +26,10 @@ export class DetailsComponent implements OnInit{
     this.route.paramMap.subscribe(params => {
       this.emailId = params.get('id')!
       this.requestBody$ = this.http.get<EmailContent>(`http://localhost:3040/api/emails/${this.emailId}`, {withCredentials: true})
+    })
+  }
+  delete(request : EmailContent){
+    this.http.delete(`http://localhost:3040/api/emails/${this.emailId}`, {withCredentials: true}).subscribe(() => {
     })
   }
 }

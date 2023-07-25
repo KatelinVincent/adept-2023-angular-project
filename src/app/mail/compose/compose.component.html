@@ -3,7 +3,7 @@
     <form [formGroup]="composedEmail" (ngSubmit)="onSend()">
         <mat-form-field class="w-full">
             <mat-label>Recipients</mat-label>
-            <mat-chip-grid #chipGrid aria-label="Enter Recipients">
+            <mat-chip-grid #chipGrid aria-label="Enter Recipients" required formControlName="recipient">
                 <mat-chip-row class="border" *ngFor="let person of to" (removed)="remove(person)"
                     [aria-description]="'press enter to edit ' + person">
                     {{person}}
