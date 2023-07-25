@@ -8,3 +8,6 @@ p {
 .active {
     background-color : LightYellow;
 }
+.red-icon {
+    color : red
+}

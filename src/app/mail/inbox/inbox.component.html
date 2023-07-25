@@ -2,10 +2,14 @@
     <h1 class="my-2">Inbox</h1>
     <ul class="border rounded">
         
-        <li *ngFor="let email of emails$ | async" (click)="readEmail(email)" routerLinkActive="active"
+        <li *ngFor="let email of emails" (click)="readEmail(email)" routerLinkActive="active"
             [ngClass]="{'bg-slate-100': email.read, 'font-normal': email.read, 'font-semibold': !email.read}" class="p-4 grid grid-cols-3 border-b"
                 [routerLink]="['/mail/inbox', email.id]">
-                <p>{{email.from}}</p>
+                <div>
+                    <mat-icon (click)="starred(email)" *ngIf="email.starred" [ngClass]="{'red-icon' : email.starred}" class="float-left">star</mat-icon>
+                    <mat-icon (click)="starred(email)" *ngIf="!email.starred" class="float-left">star_border</mat-icon>
+                    <p class="mx-10">{{email.from}}</p>
+                </div>
                 <p>{{email.subject}}</p>
                 <p>{{email.sentAt | date}}</p>
 
